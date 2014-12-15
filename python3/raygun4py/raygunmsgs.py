@@ -98,7 +98,8 @@ class RaygunErrorMessage:
                     "lineNumber": t[1],
                     "className": t[2],
                     "fileName": t[0],
-                    "methodName": t[3],
+                    # Temporary workaround for Raygun's "undefined" stack traces
+                    "methodName": t[3] or '<none>',
                 })
 
             self.className = traces[-1][2] or className
